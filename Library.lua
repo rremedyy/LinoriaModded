@@ -3007,7 +3007,7 @@ function Library:CreateWindow(...)
 
     local WindowLabel = Library:CreateLabel({
         Position = UDim2.new(0, 7, 0, 0);
-        Size = UDim2.new(0, 0, 0, 25);
+        Size = UDim2.new(0, 0, 0, 22);
         Text = Config.Title or '';
         TextXAlignment = Enum.TextXAlignment.Left;
         RichText = true,
@@ -3017,6 +3017,18 @@ function Library:CreateWindow(...)
     if Config.CenterTitle then
         WindowLabel.TextXAlignment = Enum.TextXAlignment.Center
         WindowLabel.Position = UDim2.new(0, 273, 0, 0);
+    end
+    local ConfigLabel
+    if Config.Version then
+        ConfigLabel = Library:CreateLabel({
+            Position = UDim2.new(0, 537, 0, 0);
+            Size = UDim2.new(0, 0, 0, 22);
+            Text = Config.Version or '';
+            TextXAlignment = Enum.TextXAlignment.Right;
+            RichText = true,
+            ZIndex = 1;
+            Parent = Inner;
+        });
     end
 
     local MainSectionOuter = Library:Create('Frame', {
