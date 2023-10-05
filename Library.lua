@@ -1026,7 +1026,7 @@ do
         local PickOuter = Library:Create('Frame', {
             BackgroundColor3 = Color3.new(0, 0, 0);
             BorderColor3 = Color3.new(0, 0, 0);
-            Size = UDim2.new(0, 28, 0, 15);
+            Size = UDim2.new(0, 28, 0, 17.5);
             ZIndex = 6;
             Parent = ToggleLabel;
         });
@@ -1057,7 +1057,7 @@ do
         local ModeSelectOuter = Library:Create('Frame', {
             BorderColor3 = Color3.new(0, 0, 0);
             Position = UDim2.fromOffset(ToggleLabel.AbsolutePosition.X + ToggleLabel.AbsoluteSize.X + 4, ToggleLabel.AbsolutePosition.Y + 1);
-            Size = UDim2.new(0, 60, 0, 45 + 2);
+            Size = UDim2.new(0, 60, 0, 60 + 2);
             Visible = false;
             ZIndex = 14;
             Parent = ScreenGui;
@@ -1283,8 +1283,8 @@ do
             end;
         end);
 
-        Library:GiveSignal(InputService.InputBegan:Connect(function(Input)
-            if (not Picking) then
+        Library:GiveSignal(InputService.InputBegan:Connect(function(Input, gameProcessedEvent)
+            if (not Picking and not gameProcessedEvent) then
                 if KeyPicker.Mode == 'Toggle' then
                     local Key = KeyPicker.Value;
 
@@ -1301,9 +1301,10 @@ do
                         end;
                     end;
                 elseif KeyPicker.Mode == 'Once' then
+                    local Key = KeyPicker.Value;
+                    print(Input.KeyCode.Name, Key)
                     if Key == 'MB1' or Key == 'MB2' then
-                        if Key == 'MB1' and Input.UserInputType == Enum.UserInputType.MouseButton1
-                        or Key == 'MB2' and Input.UserInputType == Enum.UserInputType.MouseButton2 then
+                        if Key == 'MB1' and Input.UserInputType == Enum.UserInputType.MouseButton1 or Key == 'MB2' and Input.UserInputType == Enum.UserInputType.MouseButton2 then
                             KeyPicker:DoClick()
                         end;
                     elseif Input.UserInputType == Enum.UserInputType.Keyboard then
