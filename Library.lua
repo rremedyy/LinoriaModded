@@ -2084,7 +2084,7 @@ do
             elseif Info.HideMax then
                 DisplayLabel.Text = string.format('%s', Slider.Value .. Suffix)
             elseif Info.Percentage then
-                DisplayLabel.Text = string.format('%s', math.floor((Slider.Value-Slider.Min)/Slider.Max*100) .. '%')
+                DisplayLabel.Text = string.format('%s', math.floor(Slider.Value/Slider.Max*100) .. '%')
             else
                 DisplayLabel.Text = string.format('%s/%s', Slider.Value .. Suffix, Slider.Max .. Suffix);
             end
