@@ -1,4 +1,3 @@
+# Centering (Title, Labels, Groupboxs)
 # Single Click Keybinds
-# Keybinds not fired when typing
-# Center Title
-# Center labels & groupboxs
+# Ignore keybinds when typing
