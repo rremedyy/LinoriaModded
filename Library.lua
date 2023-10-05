@@ -1300,10 +1300,17 @@ do
                             KeyPicker:DoClick()
                         end;
                     end;
-                elseif KeyPicker.Mode == 'Once' and Input.UserInputType == Enum.UserInputType.Keyboard then
-                    if Input.KeyCode.Name == Key then
-                        KeyPicker:DoClick()
-                    end
+                elseif KeyPicker.Mode == 'Once' then
+                    if Key == 'MB1' or Key == 'MB2' then
+                        if Key == 'MB1' and Input.UserInputType == Enum.UserInputType.MouseButton1
+                        or Key == 'MB2' and Input.UserInputType == Enum.UserInputType.MouseButton2 then
+                            KeyPicker:DoClick()
+                        end;
+                    elseif Input.UserInputType == Enum.UserInputType.Keyboard then
+                        if Input.KeyCode.Name == Key then
+                            KeyPicker:DoClick()
+                        end;
+                    end;
                 end;
 
                 KeyPicker:Update();
