@@ -3014,6 +3014,9 @@ function Library:CreateWindow(...)
         ZIndex = 1;
         Parent = Inner;
     });
+    if Config.CenterTitle then
+        WindowLabel.TextXAlignment = Enum.TextXAlignment.Center
+    end
 
     local MainSectionOuter = Library:Create('Frame', {
         BackgroundColor3 = Library.BackgroundColor;
