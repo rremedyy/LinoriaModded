@@ -3016,6 +3016,7 @@ function Library:CreateWindow(...)
     });
     if Config.CenterTitle then
         WindowLabel.TextXAlignment = Enum.TextXAlignment.Center
+        WindowLabel.Position = UDim2.new(0, 273, 0, 0);
     end
 
     local MainSectionOuter = Library:Create('Frame', {
