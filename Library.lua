@@ -1302,7 +1302,6 @@ do
                     end;
                 elseif KeyPicker.Mode == 'Once' then
                     local Key = KeyPicker.Value;
-                    print(Input.KeyCode.Name, Key)
                     if Key == 'MB1' or Key == 'MB2' then
                         if Key == 'MB1' and Input.UserInputType == Enum.UserInputType.MouseButton1 or Key == 'MB2' and Input.UserInputType == Enum.UserInputType.MouseButton2 then
                             KeyPicker:DoClick()
